@@ -235,12 +235,24 @@ static int fusefs_truncate(const char *path, off_t size) {
 }
 
 static int fusefs_access(const char *path, int mask) {
+    char *local_path = build_cache_path(path);
+    int res;
+
     printf("access called for: %s\n", path);
-    
-    if (file_exists_on_server(path)) {
+
+    res = access(local_path, mask);
+
+    if (res == 0) {
+        free(local_path);
         return 0;
     }
-    
+
+    if (file_exists_on_server(path)) {
+        free(local_path);
+        return 0;
+    }
+
+    free(local_path);
     return -ENOENT;
 }
 

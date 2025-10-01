@@ -232,4 +232,66 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 	      Unknown (128), Unknown (129), Unknown (130), Unknown (131)
 	      Unknown (132), Unknown (133), Unknown (134), Unknown (135)
 	    MSZ (57), length 2: 1260
-	    Server-ID (54), length 4: 128.104.222
+	    Server-ID (54), length 4: 128.104.222.9
+	    GUID (97), length 17: 0.54.198.196.159.82.245.65.126.163.221.237.73.135.117.24.205
+	    ARCH (93), length 2: 0
+	    NDI (94), length 3: 1.2.1
+	    Vendor-Class (60), length 32: "PXEClient:Arch:00000:UNDI:002001"
+22:12:27.400562 10:70:fd:f9:34:04 > ff:ff:ff:ff:ff:ff, ethertype IPv4 (0x0800), length 380: (tos 0x10, ttl 128, id 0, offset 0, flags [none], proto UDP (17), length 366)
+    128.104.222.9.67 > 255.255.255.255.68: BOOTP/DHCP, Reply, length 338, xid 0x3190226e, Flags [Broadcast]
+	  Your-IP 128.105.144.126
+	  Server-IP 128.104.222.9
+	  Client-Ethernet-Address b4:de:31:90:22:6e
+	  file "/tftpboot/pxeboot.emu-sio1"
+	  Vendor-rfc1048 Extensions
+	    Magic Cookie 0x63825363
+	    DHCP-Message (53), length 1: ACK
+	    Server-ID (54), length 4: 128.104.222.9
+	    Lease-Time (51), length 4: 36000
+	    Subnet-Mask (1), length 4: 255.255.252.0
+	    Default-Gateway (3), length 4: 128.105.144.1
+	    Domain-Name-Server (6), length 8: 128.104.222.9,128.104.222.8
+	    Hostname (12), length 13: "c220g5-110520"
+	    Domain-Name (15), length 16: "wisc.cloudlab.us"
+	    RP (17), length 9: "/tftpboot"
+	    Vendor-Option (43), length 3: 6.1.8
+	    Vendor-Class (60), length 9: "PXEClient"
+[?2004h]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ tcpdump -r dhcp_capture.pcap -nev > dhcp_read[K[K[Keadble[K[K[Kabled.t[K[K[K[Ke.tc[Kxt
+[?2004lreading from file dhcp_capture.pcap, link-type EN10MB (Ethernet), snapshot length 262144
+[?2004h]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ git add .
+[?2004l[?2004h]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ git commit -m  "systools stuff"
+[?2004l[main f963a94] systools stuff
+ Committer: krisub <krisub@node1.krisub-271078.os-class-pg0.wisc.cloudlab.us>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 2 files changed, 236 insertions(+)
+ create mode 100644 systools/new_file
+ create mode 100644 systools/session_record
+[?2004h]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ git pu[K[K[K[K[K[Kcd ..
+[?2004l[?2004h]0;krisub@node1: ~/fuse_lab[01;32mkrisub@node1[00m:[01;34m~/fuse_lab[00m$ cd [K[K[Kgit add .
+[?2004l[?2004h]0;krisub@node1: ~/fuse_lab[01;32mkrisub@node1[00m:[01;34m~/fuse_lab[00m$ i[Kgit commit -m '[K"systool [Ks stuff"
+[?2004l[main a179a68] systools stuff
+ Committer: krisub <krisub@node1.krisub-271078.os-class-pg0.wisc.cloudlab.us>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 8 files c

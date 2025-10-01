@@ -160,14 +160,15 @@ static int fusefs_open(const char *path, struct fuse_file_info *fi) {
     
     fi->fh = fd;
     free(local_path);
+
     return 0;
 }
 
 static int fusefs_read(const char *path, char *buf, size_t size, off_t offset,
                       struct fuse_file_info *fi) {
     int res = pread(fi->fh, buf, size, offset);
-    printf("read called for: %s, size: %zu, offset: %ld, result: %d\n", 
-           path, size, offset, res);
+    // printf("read called for: %s, size: %zu, offset: %ld, result: %d\n", 
+    //       path, size, offset, res);
     if (res == -1)
         res = -errno;
     return res;

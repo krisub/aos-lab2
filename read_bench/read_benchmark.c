@@ -2,10 +2,13 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <time.h>
 #include <sys/time.h>
-#include <string.h>
+#include <sys/stat.h>
 
 #define BUFFER_SIZE 4096
+#define NUM_READS 10000
+#define REPORT_INTERVAL 250 // interval to output progress into CSV
 
 double get_time_ms() {
     struct timeval tv;
@@ -14,17 +17,17 @@ double get_time_ms() {
 }
 
 int main(int argc, char *argv[]) {
-    if (argc != 3) {
-        fprintf(stderr, "Usage: %s <filename> <num_reads>\n", argv[0]);
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
         return 1;
     }
-    
+
     char *filename = argv[1];
-    int num_reads = atoi(argv[2]);
     char buffer[BUFFER_SIZE];
-    
-    printf("Reading file: %s\n", filename);
-    printf("Number of reads: %d\n", num_reads);
+    struct stat st;
+
+    // FUSE open does the one time scp
+    double start_time = get_time_ms();
 
     int fd = open(filename, O_RDONLY);
     if (fd == -1) {
@@ -32,49 +35,48 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    printf("\n");
-    printf("Read#,Time(ms),Cumulative(ms)\n");
-    
-    double start_total = get_time_ms();
-    double cumulative = 0.0;
-    
-    for (int i = 0; i < num_reads; i++) {
-        if (lseek(fd, 0, SEEK_SET) == -1) {
-            perror("lseek");
-            close(fd);
-            return 1;
+    if (fstat(fd, &st) == -1) {
+        perror("fstat");
+        close(fd);
+        return 1;
+    }
+
+    off_t file_size = st.st_size;
+    if (file_size < BUFFER_SIZE) {
+        fprintf(stderr, "File is smaller than buffer size.\n");
+        close(fd);
+        return 1;
+    }
+
+    srand(time(NULL));
+
+    // CSV header
+    printf("ReadsCompleted,CumulativeTime(ms)\n");
+
+    // 0: initial opening cost
+    printf("0,%.3f\n", get_time_ms() - start_time);
+    fflush(stdout);
+
+    for (int i = 0; i < NUM_READS; i++) {
+        off_t offset = rand() % (file_size - BUFFER_SIZE);
+
+        if (pread(fd, buffer, BUFFER_SIZE, offset) != BUFFER_SIZE) {
+            // skip
         }
 
-        double start = get_time_ms();
-        
-        ssize_t bytes_read;
-        off_t total_bytes = 0;
-        
-        while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0) {
-            total_bytes += bytes_read;
+        if ((i + 1) % REPORT_INTERVAL == 0) {
+            double current_time = get_time_ms();
+            printf("%d,%.3f\n", i + 1, current_time - start_time);
+            fflush(stdout);
         }
-        
-        if (bytes_read == -1) {
-            perror("read");
-            close(fd);
-            return 1;
-        }
-        
-        double end = get_time_ms();
-        double elapsed = end - start;
-        cumulative += elapsed;
-        
-        printf("%d,%.3f,%.3f\n", i + 1, elapsed, cumulative);
-        fflush(stdout);
     }
 
     close(fd);
 
-    double total_time = get_time_ms() - start_total;
-    
-    printf("\n");
-    printf("Total time: %.3f ms\n", total_time);
-    printf("Average per read: %.3f ms\n", total_time / num_reads);
-    
+    double total_time = get_time_ms() - start_time;
+
+    fprintf(stderr, "\nBenchmark complete.\n");
+    fprintf(stderr, "Total time for %d random reads: %.3f ms\n", NUM_READS, total_time);
+
     return 0;
 }

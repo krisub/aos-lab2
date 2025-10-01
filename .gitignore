@@ -1,2 +1,7 @@
 fusefs
 test
+read_bench/read_benchmark
+multifile_bench/multifile_benchmark
+systools/B
+systools/dhcp_capture.pcap
+systools/dhcp_readable.txt

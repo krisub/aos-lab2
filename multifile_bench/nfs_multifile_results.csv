@@ -1,0 +1,6 @@
+File,OperationTime(ms),CumulativeTime(ms)
+/users/krisub/nfs_mount/largefile_1.dat,2.010,2.010
+/users/krisub/nfs_mount/largefile_2.dat,0.990,3.000
+/users/krisub/nfs_mount/largefile_3.dat,0.912,3.912
+/users/krisub/nfs_mount/largefile_4.dat,1.019,4.931
+/users/krisub/nfs_mount/largefile_5.dat,1.171,6.102

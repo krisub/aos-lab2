@@ -87,4 +87,31 @@ sudo umount nfs_mount
 to mount nfs:
 sudo mount -t nfs ...111307...:/tmp/nfs_share ~/nfs_mount
 
+
+
+
+system tools:
+
+ifconfig / ip addr show
+> eno1
+
+
+> sudo tcpdump -i eno1 -w dhcp_capture.pcap 'port 67 or port 68'
+tcpdump: listening on eno1, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+^C
+8 packets captured
+10 packets received by filter
+0 packets dropped by kernel
+
+> sudo dhclient -r eno1
+> sudo dhclient eno1
+RTNETLINK answers: File exists
+
+> tcpdump -r dhcp_capture.pcap -nev
+protocol listed when lits say proto UDP
+mac address on DHCP-Message Discover packet listed in
+  ethernet header (ethertyp IPv4, [source mac] > [destination mac])
+  00:5d:73:ef:XX:XX
+dhcp server ip on DHCP-Message Offer packet, source ip 128.104.222.9
+
 ```

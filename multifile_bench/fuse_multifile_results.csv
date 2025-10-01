@@ -1,0 +1,6 @@
+File,OperationTime(ms),CumulativeTime(ms)
+/users/krisub/mount_point/largefile_1.dat,3833.233,3833.233
+/users/krisub/mount_point/largefile_2.dat,3669.277,7502.510
+/users/krisub/mount_point/largefile_3.dat,4294.950,11797.460
+/users/krisub/mount_point/largefile_4.dat,5615.383,17412.843
+/users/krisub/mount_point/largefile_5.dat,7026.067,24438.910

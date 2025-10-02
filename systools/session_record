@@ -1,13 +1,13 @@
-Script started on 2025-09-30 22:03:40-05:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="199" LINES="41"]
-[?2004h]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [7mstrace cat - > new_file[27mstrace cat - > new_file
-[?2004lexecve("/usr/bin/cat", ["cat", "-"], 0x7ffe84f92478 /* 35 vars */) = 0
-brk(NULL)                               = 0x556785155000
-arch_prctl(0x3001 /* ARCH_??? */, 0x7ffcaa9dc760) = -1 EINVAL (Invalid argument)
-mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa3aa0f7000
+Script started on 2025-10-02 18:39:16-05:00 [TERM="xterm-256color" TTY="/dev/pts/7" COLUMNS="109" LINES="32"]
+[?2004h]0;krisub@node1: ~[01;32mkrisub@node1[00m:[01;34m~[00m$ stract[Ke cat - > new_file
+[?2004lexecve("/usr/bin/cat", ["cat", "-"], 0x7ffd749c4248 /* 35 vars */) = 0
+brk(NULL)                               = 0x55e916281000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7fff2d7c2200) = -1 EINVAL (Invalid argument)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9358587000
 access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=23040, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 23040, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fa3aa0f1000
+mmap(NULL, 23040, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f9358581000
 close(3)                                = 0
 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
@@ -16,282 +16,45 @@ pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 
 pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\325\31p\226\367\t\200\30)\261\30\257\33|\366c"..., 68, 896) = 68
 newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
-mmap(NULL, 2264656, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fa3a9ec8000
-mprotect(0x7fa3a9ef0000, 2023424, PROT_NONE) = 0
-mmap(0x7fa3a9ef0000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7fa3a9ef0000
-mmap(0x7fa3aa085000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7fa3aa085000
-mmap(0x7fa3aa0de000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x215000) = 0x7fa3aa0de000
-mmap(0x7fa3aa0e4000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fa3aa0e4000
+mmap(NULL, 2264656, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f9358358000
+mprotect(0x7f9358380000, 2023424, PROT_NONE) = 0
+mmap(0x7f9358380000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7f9358380000
+mmap(0x7f9358515000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7f9358515000
+mmap(0x7f935856e000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x215000) = 0x7f935856e000
+mmap(0x7f9358574000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f9358574000
 close(3)                                = 0
-mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa3a9ec5000
-arch_prctl(ARCH_SET_FS, 0x7fa3a9ec5740) = 0
-set_tid_address(0x7fa3a9ec5a10)         = 157497
-set_robust_list(0x7fa3a9ec5a20, 24)     = 0
-rseq(0x7fa3a9ec60e0, 0x20, 0, 0x53053053) = 0
-mprotect(0x7fa3aa0de000, 16384, PROT_READ) = 0
-mprotect(0x55675e45a000, 4096, PROT_READ) = 0
-mprotect(0x7fa3aa131000, 8192, PROT_READ) = 0
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9358355000
+arch_prctl(ARCH_SET_FS, 0x7f9358355740) = 0
+set_tid_address(0x7f9358355a10)         = 188269
+set_robust_list(0x7f9358355a20, 24)     = 0
+rseq(0x7f93583560e0, 0x20, 0, 0x53053053) = 0
+mprotect(0x7f935856e000, 16384, PROT_READ) = 0
+mprotect(0x55e8fcb0e000, 4096, PROT_READ) = 0
+mprotect(0x7f93585c1000, 8192, PROT_READ) = 0
 prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
-munmap(0x7fa3aa0f1000, 23040)           = 0
-getrandom("\xcc\x0f\x2c\xbe\xc2\xc6\xff\x1b", 8, GRND_NONBLOCK) = 8
-brk(NULL)                               = 0x556785155000
-brk(0x556785176000)                     = 0x556785176000
+munmap(0x7f9358581000, 23040)           = 0
+getrandom("\xc5\xc7\x2b\x6c\x97\xf6\xaf\x6c", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x55e916281000
+brk(0x55e9162a2000)                     = 0x55e9162a2000
 openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = 3
 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=3048928, ...}, AT_EMPTY_PATH) = 0
-mmap(NULL, 3048928, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fa3a9bdc000
+mmap(NULL, 3048928, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f935806c000
 close(3)                                = 0
 newfstatat(1, "", {st_mode=S_IFREG|0644, st_size=0, ...}, AT_EMPTY_PATH) = 0
-newfstatat(0, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x4), ...}, AT_EMPTY_PATH) = 0
+newfstatat(0, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x8), ...}, AT_EMPTY_PATH) = 0
 fadvise64(0, 0, 0, POSIX_FADV_SEQUENTIAL) = 0
-mmap(NULL, 139264, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa3a9bba000
+mmap(NULL, 139264, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f935804a000
 read(0, hi mom
 "hi mom\n", 131072)             = 7
 write(1, "hi mom\n", 7)                 = 7
 read(0, "", 131072)                     = 0
-munmap(0x7fa3a9bba000, 139264)          = 0
+munmap(0x7f935804a000, 139264)          = 0
 close(0)                                = 0
 close(1)                                = 0
 close(2)                                = 0
 exit_group(0)                           = ?
 +++ exited with 0 +++
-[?2004h]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [7mlsof | grep /dev[27mlsof | grep /dev > B
-[?2004l[?2004h]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ ifconfig
-[?2004leno1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-        inet 128.105.144.238  netmask 255.255.252.0  broadcast 128.105.147.255
-        inet6 fe80::25d:73ff:feef:4a56  prefixlen 64  scopeid 0x20<link>
-        ether 00:5d:73:ef:4a:56  txqueuelen 1000  (Ethernet)
-        RX packets 77651119  bytes 20143115902 (20.1 GB)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 6674619  bytes 7901441205 (7.9 GB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+[?2004h]0;krisub@node1: ~[01;32mkrisub@node1[00m:[01;34m~[00m$ exit
+[?2004lexit
 
-enp94s0f1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-        inet 10.10.1.2  netmask 255.255.255.0  broadcast 10.10.1.255
-        inet6 fe80::3efd:feff:feb0:eff5  prefixlen 64  scopeid 0x20<link>
-        ether 3c:fd:fe:b0:ef:f5  txqueuelen 1000  (Ethernet)
-        RX packets 0  bytes 0 (0.0 B)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 224  bytes 15776 (15.7 KB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-
-lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
-        inet 127.0.0.1  netmask 255.0.0.0
-        inet6 ::1  prefixlen 128  scopeid 0x10<host>
-        loop  txqueuelen 1000  (Local Loopback)
-        RX packets 779828  bytes 148313758 (148.3 MB)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 779828  bytes 148313758 (148.3 MB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-
-[?2004h]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [7mip addr show[27mip addr show
-[?2004l1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host 
-       valid_lft forever preferred_lft forever
-2: enp94s0f0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
-    link/ether 3c:fd:fe:b0:ef:f4 brd ff:ff:ff:ff:ff:ff
-3: enp94s0f1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-    link/ether 3c:fd:fe:b0:ef:f5 brd ff:ff:ff:ff:ff:ff
-    inet 10.10.1.2/24 brd 10.10.1.255 scope global enp94s0f1
-       valid_lft forever preferred_lft forever
-    inet6 fe80::3efd:feff:feb0:eff5/64 scope link 
-       valid_lft forever preferred_lft forever
-4: eno1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-    link/ether 00:5d:73:ef:4a:56 brd ff:ff:ff:ff:ff:ff
-    altname enp59s0f0
-    inet 128.105.144.238/22 metric 1024 brd 128.105.147.255 scope global eno1
-       valid_lft forever preferred_lft forever
-    inet6 fe80::25d:73ff:feef:4a56/64 scope link 
-       valid_lft forever preferred_lft forever
-5: eno2: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
-    link/ether 00:5d:73:ef:4a:57 brd ff:ff:ff:ff:ff:ff
-    altname enp59s0f1
-[?2004h]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ clear
-[?2004l[H[2J[3J[?2004h]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [7msudo tcpdump -i <eth0> -w dhcp_capture.pcap 'port 67 or port 68'[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo tcpdump -i <eth0> -w dhcp_capture.pcap 'port 67 or port 68'[1P[1P[1P[1P[1P[1@e[1P[1P[1@e[1@n[1@o[1@1
-[?2004ltcpdump: listening on eno1, link-type EN10MB (Ethernet), snapshot length 262144 bytes
-^C8 packets captured
-10 packets received by filter
-0 packets dropped by kernel
-[?2004h]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [7mtcpdump -r dhcp_capture.pcap -nev[27mtcpdump -r dhcp_capture.pcap -nev
-[?2004lreading from file dhcp_capture.pcap, link-type EN10MB (Ethernet), snapshot length 262144
-22:12:23.414887 b4:de:31:90:22:6e > ff:ff:ff:ff:ff:ff, ethertype IPv4 (0x0800), length 590: (tos 0x0, ttl 128, id 0, offset 0, flags [none], proto UDP (17), length 576)
-    0.0.0.0.68 > 255.255.255.255.67: BOOTP/DHCP, Request from b4:de:31:90:22:6e, length 548, xid 0x3190226e, Flags [Broadcast]
-	  Client-Ethernet-Address b4:de:31:90:22:6e
-	  Vendor-rfc1048 Extensions
-	    Magic Cookie 0x63825363
-	    DHCP-Message (53), length 1: Discover
-	    Parameter-Request (55), length 36: 
-	      Subnet-Mask (1), Time-Zone (2), Default-Gateway (3), Time-Server (4)
-	      IEN-Name-Server (5), Domain-Name-Server (6), RL (11), Hostname (12)
-	      BS (13), Domain-Name (15), SS (16), RP (17)
-	      EP (18), RSZ (22), TTL (23), BR (28)
-	      YD (40), YS (41), NTP (42), Vendor-Option (43)
-	      Requested-IP (50), Lease-Time (51), Server-ID (54), RN (58)
-	      RB (59), Vendor-Class (60), TFTP (66), BF (67)
-	      Unknown (128), Unknown (129), Unknown (130), Unknown (131)
-	      Unknown (132), Unknown (133), Unknown (134), Unknown (135)
-	    MSZ (57), length 2: 1260
-	    GUID (97), length 17: 0.54.198.196.159.82.245.65.126.163.221.237.73.135.117.24.205
-	    ARCH (93), length 2: 0
-	    NDI (94), length 3: 1.2.1
-	    Vendor-Class (60), length 32: "PXEClient:Arch:00000:UNDI:002001"
-22:12:23.415073 10:70:fd:f9:34:04 > ff:ff:ff:ff:ff:ff, ethertype IPv4 (0x0800), length 380: (tos 0x10, ttl 128, id 0, offset 0, flags [none], proto UDP (17), length 366)
-    128.104.222.9.67 > 255.255.255.255.68: BOOTP/DHCP, Reply, length 338, xid 0x3190226e, Flags [Broadcast]
-	  Your-IP 128.105.144.126
-	  Server-IP 128.104.222.9
-	  Client-Ethernet-Address b4:de:31:90:22:6e
-	  file "/tftpboot/pxeboot.emu-sio1"
-	  Vendor-rfc1048 Extensions
-	    Magic Cookie 0x63825363
-	    DHCP-Message (53), length 1: Offer
-	    Server-ID (54), length 4: 128.104.222.9
-	    Lease-Time (51), length 4: 36000
-	    Subnet-Mask (1), length 4: 255.255.252.0
-	    Default-Gateway (3), length 4: 128.105.144.1
-	    Domain-Name-Server (6), length 8: 128.104.222.9,128.104.222.8
-	    Hostname (12), length 13: "c220g5-110520"
-	    Domain-Name (15), length 16: "wisc.cloudlab.us"
-	    RP (17), length 9: "/tftpboot"
-	    Vendor-Option (43), length 3: 6.1.8
-	    Vendor-Class (60), length 9: "PXEClient"
-22:12:25.234734 00:5d:73:ef:4a:56 > ff:ff:ff:ff:ff:ff, ethertype IPv4 (0x0800), length 352: (tos 0x10, ttl 128, id 0, offset 0, flags [none], proto UDP (17), length 338)
-    0.0.0.0.68 > 255.255.255.255.67: BOOTP/DHCP, Request from 00:5d:73:ef:4a:56, length 310, xid 0x30669a46, Flags [none]
-	  Client-Ethernet-Address 00:5d:73:ef:4a:56
-	  Vendor-rfc1048 Extensions
-	    Magic Cookie 0x63825363
-	    DHCP-Message (53), length 1: Discover
-	    Hostname (12), length 49: "node1.krisub-271078.os-class-pg0.wisc.cloudlab.us"
-	    Parameter-Request (55), length 13: 
-	      Subnet-Mask (1), BR (28), Time-Zone (2), Default-Gateway (3)
-	      Domain-Name (15), Domain-Name-Server (6), Unknown (119), Hostname (12)
-	      Netbios-Name-Server (44), Netbios-Scope (47), MTU (26), Classless-Static-Route (121)
-	      NTP (42)
-22:12:25.234972 10:70:fd:f9:34:04 > 00:5d:73:ef:4a:56, ethertype IPv4 (0x0800), length 353: (tos 0x10, ttl 128, id 0, offset 0, flags [none], proto UDP (17), length 339)
-    128.104.222.9.67 > 128.105.144.238.68: BOOTP/DHCP, Reply, length 311, xid 0x30669a46, Flags [none]
-	  Your-IP 128.105.144.238
-	  Server-IP 128.104.222.9
-	  Client-Ethernet-Address 00:5d:73:ef:4a:56
-	  file "/tftpboot/pxeboot.emu-sio1"
-	  Vendor-rfc1048 Extensions
-	    Magic Cookie 0x63825363
-	    DHCP-Message (53), length 1: Offer
-	    Server-ID (54), length 4: 128.104.222.9
-	    Lease-Time (51), length 4: 36000
-	    Subnet-Mask (1), length 4: 255.255.252.0
-	    Default-Gateway (3), length 4: 128.105.144.1
-	    Domain-Name (15), length 16: "wisc.cloudlab.us"
-	    Domain-Name-Server (6), length 8: 128.104.222.9,128.104.222.8
-	    Hostname (12), length 13: "c220g5-111304"
-22:12:25.235380 00:5d:73:ef:4a:56 > ff:ff:ff:ff:ff:ff, ethertype IPv4 (0x0800), length 364: (tos 0x10, ttl 128, id 0, offset 0, flags [none], proto UDP (17), length 350)
-    0.0.0.0.68 > 255.255.255.255.67: BOOTP/DHCP, Request from 00:5d:73:ef:4a:56, length 322, xid 0x30669a46, Flags [none]
-	  Client-Ethernet-Address 00:5d:73:ef:4a:56
-	  Vendor-rfc1048 Extensions
-	    Magic Cookie 0x63825363
-	    DHCP-Message (53), length 1: Request
-	    Server-ID (54), length 4: 128.104.222.9
-	    Requested-IP (50), length 4: 128.105.144.238
-	    Hostname (12), length 49: "node1.krisub-271078.os-class-pg0.wisc.cloudlab.us"
-	    Parameter-Request (55), length 13: 
-	      Subnet-Mask (1), BR (28), Time-Zone (2), Default-Gateway (3)
-	      Domain-Name (15), Domain-Name-Server (6), Unknown (119), Hostname (12)
-	      Netbios-Name-Server (44), Netbios-Scope (47), MTU (26), Classless-Static-Route (121)
-	      NTP (42)
-22:12:25.235483 10:70:fd:f9:34:04 > 00:5d:73:ef:4a:56, ethertype IPv4 (0x0800), length 353: (tos 0x10, ttl 128, id 0, offset 0, flags [none], proto UDP (17), length 339)
-    128.104.222.9.67 > 128.105.144.238.68: BOOTP/DHCP, Reply, length 311, xid 0x30669a46, Flags [none]
-	  Your-IP 128.105.144.238
-	  Server-IP 128.104.222.9
-	  Client-Ethernet-Address 00:5d:73:ef:4a:56
-	  file "/tftpboot/pxeboot.emu-sio1"
-	  Vendor-rfc1048 Extensions
-	    Magic Cookie 0x63825363
-	    DHCP-Message (53), length 1: ACK
-	    Server-ID (54), length 4: 128.104.222.9
-	    Lease-Time (51), length 4: 36000
-	    Subnet-Mask (1), length 4: 255.255.252.0
-	    Default-Gateway (3), length 4: 128.105.144.1
-	    Domain-Name (15), length 16: "wisc.cloudlab.us"
-	    Domain-Name-Server (6), length 8: 128.104.222.9,128.104.222.8
-	    Hostname (12), length 13: "c220g5-111304"
-22:12:27.400318 b4:de:31:90:22:6e > ff:ff:ff:ff:ff:ff, ethertype IPv4 (0x0800), length 590: (tos 0x0, ttl 128, id 1, offset 0, flags [none], proto UDP (17), length 576)
-    0.0.0.0.68 > 255.255.255.255.67: BOOTP/DHCP, Request from b4:de:31:90:22:6e, length 548, xid 0x3190226e, Flags [Broadcast]
-	  Client-Ethernet-Address b4:de:31:90:22:6e
-	  Vendor-rfc1048 Extensions
-	    Magic Cookie 0x63825363
-	    DHCP-Message (53), length 1: Request
-	    Requested-IP (50), length 4: 128.105.144.126
-	    Parameter-Request (55), length 36: 
-	      Subnet-Mask (1), Time-Zone (2), Default-Gateway (3), Time-Server (4)
-	      IEN-Name-Server (5), Domain-Name-Server (6), RL (11), Hostname (12)
-	      BS (13), Domain-Name (15), SS (16), RP (17)
-	      EP (18), RSZ (22), TTL (23), BR (28)
-	      YD (40), YS (41), NTP (42), Vendor-Option (43)
-	      Requested-IP (50), Lease-Time (51), Server-ID (54), RN (58)
-	      RB (59), Vendor-Class (60), TFTP (66), BF (67)
-	      Unknown (128), Unknown (129), Unknown (130), Unknown (131)
-	      Unknown (132), Unknown (133), Unknown (134), Unknown (135)
-	    MSZ (57), length 2: 1260
-	    Server-ID (54), length 4: 128.104.222.9
-	    GUID (97), length 17: 0.54.198.196.159.82.245.65.126.163.221.237.73.135.117.24.205
-	    ARCH (93), length 2: 0
-	    NDI (94), length 3: 1.2.1
-	    Vendor-Class (60), length 32: "PXEClient:Arch:00000:UNDI:002001"
-22:12:27.400562 10:70:fd:f9:34:04 > ff:ff:ff:ff:ff:ff, ethertype IPv4 (0x0800), length 380: (tos 0x10, ttl 128, id 0, offset 0, flags [none], proto UDP (17), length 366)
-    128.104.222.9.67 > 255.255.255.255.68: BOOTP/DHCP, Reply, length 338, xid 0x3190226e, Flags [Broadcast]
-	  Your-IP 128.105.144.126
-	  Server-IP 128.104.222.9
-	  Client-Ethernet-Address b4:de:31:90:22:6e
-	  file "/tftpboot/pxeboot.emu-sio1"
-	  Vendor-rfc1048 Extensions
-	    Magic Cookie 0x63825363
-	    DHCP-Message (53), length 1: ACK
-	    Server-ID (54), length 4: 128.104.222.9
-	    Lease-Time (51), length 4: 36000
-	    Subnet-Mask (1), length 4: 255.255.252.0
-	    Default-Gateway (3), length 4: 128.105.144.1
-	    Domain-Name-Server (6), length 8: 128.104.222.9,128.104.222.8
-	    Hostname (12), length 13: "c220g5-110520"
-	    Domain-Name (15), length 16: "wisc.cloudlab.us"
-	    RP (17), length 9: "/tftpboot"
-	    Vendor-Option (43), length 3: 6.1.8
-	    Vendor-Class (60), length 9: "PXEClient"
-[?2004h]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ tcpdump -r dhcp_capture.pcap -nev > dhcp_read[K[K[Keadble[K[K[Kabled.t[K[K[K[Ke.tc[Kxt
-[?2004lreading from file dhcp_capture.pcap, link-type EN10MB (Ethernet), snapshot length 262144
-[?2004h]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ [K]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ git add .
-[?2004l[?2004h]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ git commit -m  "systools stuff"
-[?2004l[main f963a94] systools stuff
- Committer: krisub <krisub@node1.krisub-271078.os-class-pg0.wisc.cloudlab.us>
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly. Run the
-following command and follow the instructions in your editor to edit
-your configuration file:
-
-    git config --global --edit
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
-
- 2 files changed, 236 insertions(+)
- create mode 100644 systools/new_file
- create mode 100644 systools/session_record
-[?2004h]0;krisub@node1: ~/fuse_lab/systools[01;32mkrisub@node1[00m:[01;34m~/fuse_lab/systools[00m$ git pu[K[K[K[K[K[Kcd ..
-[?2004l[?2004h]0;krisub@node1: ~/fuse_lab[01;32mkrisub@node1[00m:[01;34m~/fuse_lab[00m$ cd [K[K[Kgit add .
-[?2004l[?2004h]0;krisub@node1: ~/fuse_lab[01;32mkrisub@node1[00m:[01;34m~/fuse_lab[00m$ i[Kgit commit -m '[K"systool [Ks stuff"
-[?2004l[main a179a68] systools stuff
- Committer: krisub <krisub@node1.krisub-271078.os-class-pg0.wisc.cloudlab.us>
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly. Run the
-following command and follow the instructions in your editor to edit
-your configuration file:
-
-    git config --global --edit
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
-
- 8 files c
+Script done on 2025-10-02 18:39:31-05:00 [COMMAND_EXIT_CODE="0"]
